@@ -6,7 +6,7 @@ const MovieCard = ({movies}) => {
       <div class="movie_card" id="bright">
   <div class="info_section">
     <div class="movie_header">
-      <img class="locandina" src={movies.main_img}/>
+      <img class="locandina" src={movies.main_img} alt='ay hkeya'/>
       <h1>{movies.title}</h1>
       <StarRatingComponent 
           name="rate1" 

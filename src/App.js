@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
 import'./App.css';
 import MovieList from './MovieList';
 import Search from './Search';
@@ -7,7 +6,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 function App()  {
   const [keysearch,setKeysearch] = useState("")
-  const [newRate,setNewRate] = useState(1)
+  const [rating,setRating] = useState(1)
   const[movies,setMovies]= useState ([
 
   { id:uuidv4(),
@@ -42,11 +41,11 @@ function App()  {
 },
 ])
 
-const search=(text)=> {
+const getData=(text)=> {
   setKeysearch(text)
 }
-const setRate =(rate)=> {
-  setNewRate(rate)
+const dataRate =(rate)=> {
+  setRating(rate)
 }
 
 const addMovie=(movie)=>{
@@ -54,8 +53,8 @@ const addMovie=(movie)=>{
 }
 return (
   <div className="App">
-    <Search search={search} setRate={setRate} newRate={newRate} />
-<MovieList addMovie={addMovie}movies={movies.filter(el =>el.rate>= newRate  && el.title.toLowerCase().includes((keysearch.toLowerCase().trim())))}/>
+    <Search getData={getData} dataRate={dataRate}  />
+<MovieList addMovie={addMovie} movies={movies.filter(el =>el.rate>= rating  && el.title.toLowerCase().includes((keysearch.trim().toLowerCase())))}/>
   </div>
 );
 }
